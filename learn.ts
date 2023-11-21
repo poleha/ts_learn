@@ -2,7 +2,7 @@
 
 type GetSecondArg<T> = T extends (first: any, second: infer SecondArg, ...args: any[]) => any ? SecondArg : never
 
-type NumberFunc = (a: number, b: number, c:string) => number
+type NumberFunc = (a: number, b: number, c: string) => number
 
 type Second = GetSecondArg<NumberFunc> // number
 
@@ -21,7 +21,7 @@ type GetPerson = Getter<Person>
 
 
 let person: Person = {
-    1:2,
+    1: 2,
     name: 'Test'
 }
 
@@ -32,7 +32,7 @@ let getPerson: GetPerson = {
 
 //*****
 
-type MyReturnType<T> = T extends (...args:any[]) => infer ReturnType ? ReturnType : never;
+type MyReturnType<T> = T extends (...args: any[]) => infer ReturnType ? ReturnType : never;
 
 type TestFunction = () => string | number;
 
