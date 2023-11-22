@@ -38,5 +38,33 @@ type TestFunction = () => string | number;
 
 type TestFunctionReturnType = MyReturnType<TestFunction> // string | number
 
+//****
+type User = {
+    a: string,
+    b: string | null
+    c: number
+}
+
+type NonNullablePropertyOrNever<T> = {
+    [P in keyof T]: null extends T[P] ? never : P
+}
+
+type NonNullablePropertyOrNeverUser = NonNullablePropertyOrNever<User>
+
+
+// {a:  "a", b: never, c: "c"}
+type NonNullableExample = { a: "a", b: never, c: "c" }["a" | "c"] // "a" | "c"
+
+type NonNullablePropertyKeys<T> = {
+    [P in keyof T]: null extends T[P] ? never : P
+}[keyof T]
+
+
+type NonNullableUserKeys = NonNullablePropertyKeys<User> //"a" | "c"
+
+
+
+
+
 
 
